@@ -4,6 +4,22 @@
 {{ title }}
 {% endblock %}
 
+{% block header %}
+{{ title }}
+{% endblock %}
+
 {% block content %}
-{{ content }}
+<div class="form_container">
+    <form action="/todos" method="POST">
+        <br>
+        <label>Enter a Task:</label>
+        <br>
+        <input type="text" class="text-box" name="task"/>
+        <br>
+        <input type="submit" value="Submit"/>
+    </form>
+</div>
+
+
+
 {% endblock %}

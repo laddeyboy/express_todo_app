@@ -2,13 +2,24 @@
 <html>
     <head>
         <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="/css/base.css" type="text/css" />
     </head>
     <body>
         
+        <div class="header">
+            <p class="heading">{% block header %} {% endblock %}</p>
+            <div class="nav">
+                <a href="/">Home</a>
+                <a href="/todos">To Do List</a>
+                <a href="/todos/add">Add a Task</a>
+                <a href="/">Complete a Task</a>
+            </div>
+        </div>
         
-        {%block content %}
-        {% endblock %}
-        
+        <div class="index-body">
+            {%block content %}
+            {% endblock %}
+        </div>
         
     </body>
 </html>

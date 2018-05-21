@@ -4,6 +4,17 @@
 {{ title }}
 {% endblock %}
 
+{% block header %}
+{{ title }}
+{% endblock %}
+
 {% block content %}
-{{ content }}
+<div class="todo_container">
+    <div class="todo_body">
+        <ul>
+            <li>{{ content }}</li>
+        </ul>
+    </div>
+
+</div>
 {% endblock %}
