@@ -22,7 +22,7 @@ html {
 }
 
 .index-body {
-    padding-top: 20%;
+    padding-top: 10%;
     text-align: center;
     font-size: 2rem;
 }
@@ -66,7 +66,7 @@ html {
     height: 5rem;
     font-size: 2rem;
     border: 1.5px solid #fff;
-    background: grey;
+    /*background: grey;*/
     padding-left: 1rem;
     margin-left: 10vw;
     border-radius: 4px;
@@ -75,6 +75,32 @@ html {
 
 .todo_body ul {
     list-style-type: none;
+}
+
+.completed {
+    background-color: green;
+}
+.uncompleted {
+    background-color: grey;
+}
+.btn {
+    background-color: black;
+    width: 10rem;
+    font-size: 1.75rem;
+    text-decoration: none;
+    border-radius: 4px;
+    border: 1px solid border;
+}
+.btn_kill {
+    background-color: red;
+}
+
+.todo_container li, button{
+    display: inline-block;
+}
+.todo_container a {
+    color:white;
+    text-decoration: none;
 }
 
 input[type="text"] {

@@ -9,12 +9,26 @@
 {% endblock %}
 
 {% block content %}
+
 <div class="todo_container">
-    <div class="todo_body">
+    {% for task in dbData %}
+    {% if task['done'] == true %}
+    <div class="todo_body completed">
         <ul>
-            <li>{{ content }}</li>
+            <li>{{ task['description'] }}</li>
         </ul>
     </div>
-
+     <button type="button" class="btn"><a href='/todos/done/{{task['id']}}'>Unmark</a></button>
+     <button type="button" class="btn btn_kill"><a href='/todos/delete/{{task['id']}}'>Delete</a></button>
+    {% else %}
+    <div class="todo_body uncompleted">
+        <ul>
+            <li>{{ task['description'] }}</li>
+        </ul>
+    </div>
+    <button type="button" class="btn"><a href='/todos/done/{{task['id']}}'>Complete</a></button>
+    <button type="button" class="btn btn_kill"><a href='/todos/delete/{{task['id']}}'>Delete</a></button>
+    {% endif %}
+    {% endfor %}
 </div>
 {% endblock %}

@@ -23,18 +23,17 @@ app.get('/', function(req, resp) {
 
 app.get('/todos', function(req, resp) {
     var dbInfo = db.query('SELECT * FROM task')
-        .then(function() {
-            console.log('completed');
+        .then(function(dbReturn) {
+            var context = {
+            title: "To Do List",
+            content: "Here's a list of To Dos",
+            dbData: dbReturn
+        };
+        resp.render('todo.html', context);
         })
         .catch(function(err){
             console.error(err);
         });
-    console.log("what is dbInfo?", dbInfo);
-    var context = {
-        title: "To Do List",
-        content: "Here's a list of To Dos"
-    };
-    resp.render('todo.html', context);
 });
 app.post('/todos', function (req, resp) {
     //get the entered task and store into db
@@ -53,6 +52,40 @@ app.post('/todos', function (req, resp) {
   resp.redirect('/todos');
 });
 
+app.get('/todos/done/:id', function(req, resp){
+    var id = req.params.id;
+    db.query('SELECT done FROM task WHERE id=$1', [id])
+        .then(function(state){
+            if(state[0]['done']){
+                return db.none('UPDATE task SET done = $1 WHERE id = $2', [false, id]);
+            }
+            else {
+                return db.none('UPDATE task SET done = $1 WHERE id = $2', [true, id]);
+            }
+        })
+        .then(function(){
+            console.log('updated database');
+        })
+        .catch(function(err){
+            console.error(err);
+        })
+    resp.redirect('/todos');
+});
+
+app.get('/todos/delete/:id', function(req, resp){
+    var id = req.params.id;
+    db.query('DELETE FROM task WHERE id=$1', [id])
+        .then(function(){
+            console.log('task deleted');
+        })
+        .catch(function(err){
+            console.error(err);
+        })
+    resp.redirect('/todos');
+});
+
+
+
 app.get('/todos/add', function(req, resp) {
     var context = {
         title: "Add Item",
@@ -60,12 +93,6 @@ app.get('/todos/add', function(req, resp) {
     };
     resp.render('addToDo.html', context);
 });
-
-app.get('/todo/done/:id', function(req, resp) {
-    var id = req.params.id;
-    resp.render(`Mark this To Do item ${id} is completed`);
-});
-
 
 app.listen(8080, function () {
   console.log('Listening on port 8000');
