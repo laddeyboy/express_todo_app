@@ -39,7 +39,7 @@ app.post('/todos', function (req, resp) {
     //get the entered task and store into db
     var newTask = req.body.task;
     if(newTask) {
-        db.result('INSERT INTO task (id, description, done) VALUES(default, $1, false)', newTask)
+        db.result('INSERT INTO task (id, description, task_complete) VALUES(default, $1, false)', newTask)
             .then(function(){
                 console.log("task written to database");
             })
@@ -52,15 +52,15 @@ app.post('/todos', function (req, resp) {
   resp.redirect('/todos');
 });
 
-app.get('/todos/done/:id', function(req, resp){
+app.get('/todos/task_complete/:id', function(req, resp){
     var id = req.params.id;
-    db.query('SELECT done FROM task WHERE id=$1', [id])
+    db.query('SELECT task_complete FROM task WHERE id=$1', [id])
         .then(function(state){
-            if(state[0]['done']){
-                return db.none('UPDATE task SET done = $1 WHERE id = $2', [false, id]);
+            if(state[0]['task_complete']){
+                return db.none('UPDATE task SET task_complete = $1 WHERE id = $2', [false, id]);
             }
             else {
-                return db.none('UPDATE task SET done = $1 WHERE id = $2', [true, id]);
+                return db.none('UPDATE task SET task_complete = $1 WHERE id = $2', [true, id]);
             }
         })
         .then(function(){
@@ -95,5 +95,5 @@ app.get('/todos/add', function(req, resp) {
 });
 
 app.listen(8080, function () {
-  console.log('Listening on port 8000');
+  console.log('Listening on port 8080');
 });

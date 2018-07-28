@@ -12,13 +12,13 @@
 
 <div class="todo_container">
     {% for task in dbData %}
-    {% if task['done'] == true %}
+    {% if task['task_complete'] == true %}
     <div class="todo_body completed">
         <ul>
             <li>{{ task['description'] }}</li>
         </ul>
     </div>
-     <button type="button" class="btn"><a href='/todos/done/{{task['id']}}'>Unmark</a></button>
+     <button type="button" class="btn"><a href='/todos/task_complete/{{task['id']}}'>Unmark</a></button>
      <button type="button" class="btn btn_kill"><a href='/todos/delete/{{task['id']}}'>Delete</a></button>
     {% else %}
     <div class="todo_body uncompleted">
@@ -26,7 +26,7 @@
             <li>{{ task['description'] }}</li>
         </ul>
     </div>
-    <button type="button" class="btn"><a href='/todos/done/{{task['id']}}'>Complete</a></button>
+    <button type="button" class="btn"><a href='/todos/task_complete/{{task['id']}}'>Complete</a></button>
     <button type="button" class="btn btn_kill"><a href='/todos/delete/{{task['id']}}'>Delete</a></button>
     {% endif %}
     {% endfor %}
