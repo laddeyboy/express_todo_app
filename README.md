@@ -4,6 +4,7 @@
 ### Live Demo
 ### Video of App (Optional)
 ### Contents
+```
 - App functionality (what it is/does)
 - Built With (what languages/libraries were used)
 - Challenges & Solutions
@@ -13,6 +14,7 @@
 - GitHub Link
 - Code Examples
 - Testing (library like chai or mocha/examples)
+```
 
 ### App functionality (what it is/does)
 ### Built With (what languages/libraries were used)
