@@ -1,3 +1,6 @@
+
+[![Build Status](https://travis-ci.org/laddeyboy/express_todo_app.svg?branch=master)](https://travis-ci.org/laddeyboy/express_todo_app)
+
 # express_todo_app
  
 Readme Template
