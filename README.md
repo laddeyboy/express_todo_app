@@ -30,7 +30,7 @@
     SOLUTION: This has not been resolved yet.
 
 ### MVP
---The basic goal for this app was to create a todo app that allows the user to enter a task into a webform.  The task would then be written to the Postgres database and then display on a ToDo List page.  Each task would have two options.  1) The task can be deleted, which will delete the task from the database and remove from the ToDo list.  2) The task can be toggled between a complete or an uncomplete state.
+The basic goal for this app was to create a todo app that allows the user to enter a task into a webform.  The task would then be written to the Postgres database and then display on a ToDo List page.  Each task would have two options.  1) The task can be deleted, which will delete the task from the database and remove from the ToDo list.  2) The task can be toggled between a complete or an uncomplete state.
 ### Stretch Goals
 - Allow for user login
 - Allow for a "Completed Tasks" list.  Move completed tasks to the "Completed Task" Page.
