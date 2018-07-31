@@ -23,7 +23,7 @@ app.get('/', function (req, resp) {
 })
 
 app.get('/todos', function (req, resp) {
-  var dbInfo = db.query('SELECT * FROM task')
+  db.query('SELECT * FROM task')
     .then(function (dbReturn) {
       var context = {
         title: 'To Do List',
