@@ -18,20 +18,20 @@
   "homepage": "https://github.com/laddeyboy/express_todo_app#readme",
   "dependencies": {
     "body-parser": "1.18.3",
-    "chai-http": "^4.0.0",
+    "chai-http": "4.0.0",
     "express": "4.16.3",
     "nodemon": "1.17.4",
     "nunjucks": "3.1.2",
     "pg-promise": "8.4.4"
   },
   "devDependencies": {
-    "chai": "^4.1.2",
+    "chai": "4.1.2",
     "eslint": "5.2.0",
     "eslint-config-standard": "11.0.0",
     "eslint-plugin-import": "2.13.0",
     "eslint-plugin-node": "7.0.1",
     "eslint-plugin-promise": "3.8.0",
     "eslint-plugin-standard": "3.1.0",
-    "mocha": "^5.2.0"
+    "mocha": "5.2.0"
   }
 }
