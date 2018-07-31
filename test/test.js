@@ -5,7 +5,7 @@ var todo = require('../todo')
 var assert = require('chai').assert
 var chai = require('chai')
 var chaiHttp = require('chai-http')
-
+var db = todo.db
 chai.use(chaiHttp)
 
 describe('Express To Do App Testing', function () {

@@ -4,6 +4,7 @@ const nunjucks = require('nunjucks')
 const body_parser = require('body-parser')
 const pgp = require('pg-promise')({})
 const db = pgp({database: 'todoapp', user: 'postgres'})
+exports.db = db
 app.use(express.static('public'))
 app.use(body_parser.urlencoded({extended: false}))
 
