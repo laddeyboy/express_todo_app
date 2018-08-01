@@ -23,7 +23,7 @@ app.get('/', function (req, resp) {
 })
 
 app.get('/todos', function (req, resp) {
-  db.query('SELECT * FROM task')
+  var dbInfo = db.query('SELECT * FROM task')
     .then(function (dbReturn) {
       var context = {
         title: 'To Do List',
@@ -65,11 +65,13 @@ app.get('/todos/task_complete/:id', function (req, resp) {
     })
     .then(function () {
       console.log('updated database')
+      resp.redirect('/todos')
     })
     .catch(function (err) {
       console.error(err)
+      resp.redirect('/todos')
     })
-  resp.redirect('/todos')
+  // resp.redirect('/todos')
 })
 
 app.get('/todos/delete/:id', function (req, resp) {
